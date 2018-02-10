@@ -1,0 +1,3 @@
+export const RECEIVE_COUNTS = "RECEIVE_COUNTS";
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";
