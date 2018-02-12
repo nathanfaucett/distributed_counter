@@ -5,10 +5,10 @@ export const setMe = (me) => ({
   me
 })
 
-export const receiveCounts = (addtions, subtractions) => ({
+export const receiveCounts = (counts) => ({
     type: actions.RECEIVE_COUNTS,
-    additions,
-    subtractions
+    additions: counts.additions ? counts.additions : {},
+    subtractions: counts.subtractions ? counts.subtractions : {}
  })
 
 export const increment = (amount=1) => ({

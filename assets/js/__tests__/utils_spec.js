@@ -1,4 +1,12 @@
-import { mergeCounts, merge, higherOf, uniqueFilter } from '../utils'
+import { mergeCounts, merge, higherOf, uniqueFilter, highestOf } from '../utils'
+
+describe("highestOf", () => {
+  it("returns the highest of arguements",() => {
+    expect(highestOf(1,2,3)).toEqual(3)
+    expect(highestOf(1)).toEqual(1);
+    expect(highestOf(1,2,3, null, undefined)).toEqual(3)
+  });
+});
 
 describe("merge", () => {
   it("it merges objects", () => {
