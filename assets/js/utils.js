@@ -17,5 +17,5 @@ export const mergeCounts = (...counts) => counts.
   reduce(arrayConcat, []).
   filter(uniqueFilter).
   reduce(
-    (acc, key) => merge(acc, { [key]: highestOf(...counts.map(count => count[key])) }
+    (acc, username) => merge(acc, { [username]: highestOf(...counts.map(count => count[username])) }
   ), {});
