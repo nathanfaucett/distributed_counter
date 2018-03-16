@@ -4,11 +4,15 @@ import { IncrementButton, DecrementButton } from '../presentational_components/B
 
 import { increment, decrement } from '../../redux/actions/simpleActions'
 
-const decrementFunc = dispatch => dispatch(increment());
-const incrementFunc = dispatch => dispatch(decrement());
+const incrementMapDispatchToProps = dispatch => ({ incrementFunc: () => dispatch(increment()) });
+const decrementMapDispatchToProps = dispatch => ({ decrementFunc: () => dispatch(decrement()) });
 
-decrementMapDispatchToProps = { decrementFunc: decrementFunc };
-incrementMapDispatchToProps = { incrementFunc: incrementFunc };
+export const ConnectedIncrementButton = connect(
+  null,
+  incrementMapDispatchToProps
+)(IncrementButton);
 
-export const ConnectedIncrementButton = connect()(IncrementButton);
-export const ConnectedDecrementButton = connect()(DecrementButton);
+export const ConnectedDecrementButton = connect(
+  null,
+  decrementMapDispatchToProps
+)(DecrementButton);
