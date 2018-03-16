@@ -2,7 +2,6 @@ import * as actions from '../../actions/constants'
 import { merge } from 'ramda'
 import { mergeCounts, addTo } from '../../../utils'
 
-
 export const counts = (state={additions: {}, subtractions: {}, me: null}, action={}) => {
   switch(action.type) {
     case actions.SET_ME:
