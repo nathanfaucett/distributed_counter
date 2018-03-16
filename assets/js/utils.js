@@ -12,3 +12,4 @@ export const mergeCounts = (...counts) => pipe(
   map(username => [username,  highestOf(...counts.map(prop(username)))]),
   fromPairs
 )(counts)
+
