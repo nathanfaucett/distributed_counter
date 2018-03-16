@@ -7,4 +7,4 @@ let mapStateToProps = state => ({
   number: netCount(state.counts.additions, state.counts.subtractions)
 })
 
-export const ConnectedNumberDisplay = connect(mapStateToProps)(NumberDisplay)
+export const ConnectedNumberDisplay = connect(mapStateToProps)(NumberDisplay);

@@ -8,13 +8,6 @@ describe("highestOf", () => {
   });
 });
 
-describe("merge", () => {
-  it("it merges objects", () => {
-    expect(merge({a: 2}, {b: 2})).toEqual({a: 2, b: 2});
-    expect(merge({a: 2}, {a: 3})).toEqual({a: 3});
-  });
-});
-
 describe("highestOf", () => {
   it("compares the higher of two values", () => {
     expect(highestOf(3,4)).toEqual(4)
@@ -33,10 +26,6 @@ describe("highestOf", () => {
     expect(highestOf(null, 4)).toEqual(4);
     expect(highestOf(4, null)).toEqual(4);
   });
-});
-
-describe("uniqueFilter", () => {
-  expect([1,2,2,3].filter(uniqueFilter)).toEqual([1,2,3])
 });
 
 describe("mergeCount", () => {

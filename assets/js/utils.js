@@ -1,21 +1,14 @@
-export const merge = (...args) => Object.assign({}, ...args)
+import { pipe, flatten, uniq, reduce, merge, sum, values, max, keys, map, defaultTo, prop, fromPairs } from 'ramda'
 
-export const uniqueFilter = (value, index, self) => self.indexOf(value) === index;
-export const arrayConcat = (acc, curr) => acc.concat(curr)
+export const addTo = (base, amount) => defaultTo(0)(base) + defaultTo(0)(amount)
+export const highestOf = (...numbers) => pipe(map(defaultTo(0)), reduce(max, 0))(numbers);
 
-export const addTo = (base, amount) => base ? base + amount : amount
-export const highestOf = (...numbers) => numbers.reduce((acc, curr) => curr > acc ? curr : acc, 0);
-
-export const sumCount = counts => Object.values(counts).reduce((acc, curr) => acc + curr, 0)
+export const sumCount = pipe(values, sum, max(0))
 export const netCount = (additions, subtractions) => sumCount(additions) - sumCount(subtractions)
+export const uniqueUsernames = pipe(map(keys), flatten, uniq)
 
-export const userNamesFromCounts = counts => Object.keys(counts)
-
-
-export const mergeCounts = (...counts) => counts.
-  map(userNamesFromCounts).
-  reduce(arrayConcat, []).
-  filter(uniqueFilter).
-  reduce(
-    (acc, key) => merge(acc, { [key]: highestOf(...counts.map(count => count[key])) }
-  ), {});
+export const mergeCounts = (...counts) => pipe(
+  uniqueUsernames,
+  map(username => [username,  highestOf(...counts.map(prop(username)))]),
+  fromPairs
+)(counts)

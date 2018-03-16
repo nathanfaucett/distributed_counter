@@ -1,4 +1,5 @@
 import * as actions from './constants'
+import { defaultTo } from 'ramda'
 
 export const setMe = (me) => ({
   type: actions.SET_ME,
@@ -7,8 +8,8 @@ export const setMe = (me) => ({
 
 export const receiveCounts = (counts) => ({
     type: actions.RECEIVE_COUNTS,
-    additions: counts.additions ? counts.additions : {},
-    subtractions: counts.subtractions ? counts.subtractions : {}
+    additions: defaultTo({})(counts.additions),
+    subtractions: defaultTo({})(counts.subtractions),
  })
 
 export const increment = (amount=1) => ({

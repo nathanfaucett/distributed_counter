@@ -1,5 +1,6 @@
 import * as actions from '../../actions/constants'
-import { merge, mergeCounts, addTo } from '../../../utils'
+import { merge } from 'ramda'
+import { mergeCounts, addTo } from '../../../utils'
 
 
 export const counts = (state={additions: {}, subtractions: {}, me: null}, action={}) => {
