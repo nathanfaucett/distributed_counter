@@ -3,6 +3,12 @@ import styled from 'styled-components'
 
 import { ConnectedDecrementButton, ConnectedIncrementButton } from "../connected_components//ConnectedButton"
 
+const FlexCenter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 const ButtonPanelBox = styled.div`
   display: grid;
   grid template: 1fr 20px 1fr / 1fr;
@@ -12,6 +18,6 @@ const ButtonPanelBox = styled.div`
 `;
 
 export const ButtonPanel = () => <ButtonPanelBox>
-  <ConnectedIncrementButton />
-  <ConnectedDecrementButton />
+  <FlexCenter><ConnectedIncrementButton /></FlexCenter>
+  <FlexCenter><ConnectedDecrementButton /></FlexCenter>
 </ButtonPanelBox>

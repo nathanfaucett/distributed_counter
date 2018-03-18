@@ -4,8 +4,8 @@ import styled from 'styled-components'
 
 const IconLayout = styled.div`
   display: grid;
+  height: 100px;
   width: 100px;
-  height: 100px
   grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
 `
 

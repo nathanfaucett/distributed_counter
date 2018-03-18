@@ -5,23 +5,20 @@ import { MinusIcon, PlusIcon } from './ButtonIcon'
 
 const ButtonBox = styled.div`
   display: flex;
-  flex-flow: row wrap;
   align-items: center;
   justify-content: center;
 
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
 
-  text-align: center;
-  font-size: 30px;
-  font-family: "Press Start 2P";
-  flex-grow: 1;
+  border: 5px solid ${props => props.type === "plus" ? props.theme.colors.green : props.theme.colors.red};
+  border-radius: 14px;
 `
 
-export const IncrementButton = ({incrementFunc}) => <ButtonBox onClick={incrementFunc}> 
+export const IncrementButton = ({incrementFunc}) => <ButtonBox type="plus" onClick={incrementFunc}> 
   <PlusIcon />
 </ButtonBox>
 
-export const DecrementButton = ({decrementFunc}) => <ButtonBox onClick={decrementFunc}> 
+export const DecrementButton = ({decrementFunc}) => <ButtonBox type="minus" onClick={decrementFunc}> 
   <MinusIcon />
 </ButtonBox>
