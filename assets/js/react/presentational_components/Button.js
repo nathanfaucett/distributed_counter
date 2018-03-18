@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { MinusIcon, PlusIcon } from './ButtonIcon'
+import { MinusIcon, PlusIcon, Plus, Plus2, Minus } from './ButtonIcon'
 
 const Box = styled.div`
   display: flex;
@@ -14,14 +14,30 @@ const Box = styled.div`
 `
 
 const MinusBox = styled(Box)`
-  border: 5px solid ${props => props.theme.colors.red}
+  border: 5px solid ${props => props.theme.colors.red};
+
+  &:active {
+    background-color: ${props => props.theme.colors.red};
+
+    ${Minus} {
+      background-color: white;
+    }
+  }
 `
 
 const PlusBox = styled(Box)`
-  border: 5px solid ${props => props.theme.colors.green}
+  border: 5px solid ${props => props.theme.colors.green};
 
-  &:focus {
-    background-color: blue;
+  &:active {
+    background-color: ${props => props.theme.colors.green};
+
+    ${Plus} {
+      background-color: white;
+    }
+
+    ${Plus2} {
+      background-color: white;
+    }
   }
 `
 
