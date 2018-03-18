@@ -12,7 +12,9 @@ import { mainReducer } from "./redux/reducers/combinedReducer";
 
 import { App } from "./react/App";
 import { updateStoreWithRecievedCounts } from './lib/socket_wrapper'
-import { setUsername } from './lib/username_functions'
+
+// import { setUsername } from './lib/username_functions'
+const setUsername = () => 1; //todo what the funk
 
 let channel = socket.channel("counter:subtopic", {});
 channel.join()

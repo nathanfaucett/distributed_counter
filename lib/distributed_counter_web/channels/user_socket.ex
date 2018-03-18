@@ -3,7 +3,7 @@ defmodule DistributedCounterWeb.UserSocket do
   transport :websocket, Phoenix.Transports.WebSocket
 
   channel "counter:*", DistributedCounterWeb.Counter
-  
+
   def connect(_params, socket) do
     {:ok,socket}
   end

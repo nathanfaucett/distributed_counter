@@ -5,8 +5,8 @@ defmodule DistributedCounterWeb.Counter do
     {:ok, socket}
   end
 
-  def handle_in("update", message, socket) do
-    broadcast! socket, "udpate", message
-    {:ok, socket}
+  def handle_in("update", %{"body" => body}, socket) do
+    broadcast! socket, "update", %{body: body}
+    {:noreply, socket}
   end
 end
