@@ -2,10 +2,10 @@ import { connect } from 'react-redux'
 
 import { IncrementButton, DecrementButton } from '../presentational_components/Button'
 
-import { increment, decrement } from '../../redux/actions/simpleActions'
+import { incrementAndNotify, decrementAndNotify } from '../../redux/actions/asyncActions'
 
-const incrementMapDispatchToProps = dispatch => ({ incrementFunc: () => dispatch(increment()) });
-const decrementMapDispatchToProps = dispatch => ({ decrementFunc: () => dispatch(decrement()) });
+const incrementMapDispatchToProps = dispatch => ({ incrementFunc: () => dispatch(incrementAndNotify()) });
+const decrementMapDispatchToProps = dispatch => ({ decrementFunc: () => dispatch(decrementAndNotify()) });
 
 export const ConnectedIncrementButton = connect(
   null,

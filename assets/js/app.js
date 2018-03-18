@@ -5,21 +5,24 @@ import ReactDOM from 'react-dom';
 
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from 'react-redux';
-import thunkMiddleware from 'redux-thunk';
+import thunk from 'redux-thunk';
 
 import socket from "./socket";
 import { mainReducer } from "./redux/reducers/combinedReducer";
 
 import { App } from "./react/App";
-
-
-const middlewares = [thunkMiddleware]
-let store = createStore(mainReducer, applyMiddleware(...middlewares));
-window.store = store;
+import { updateStoreWithRecievedCounts } from './lib/socket_wrapper'
+import { setUsername } from './lib/username_functions'
 
 let channel = socket.channel("counter:subtopic", {});
-channel.join().receive("ok", resp => { console.log("Joined successfully", resp) });
-channel.on("update", (message) => {});
+channel.join()
+
+const middlewares = [thunk.withExtraArgument({channel})]
+const store = createStore(mainReducer, applyMiddleware(...middlewares));
+window.store = store;
+
+setUsername(store);
+channel.on("update", updateStoreWithRecievedCounts(store));
 
 const setupApp = store =>  <Provider store={store}>
   <App />
