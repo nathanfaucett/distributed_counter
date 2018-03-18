@@ -9,9 +9,8 @@ const ButtonBox = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: 100px;
-  height: 50px;
-  background-color: ${props => props.color}
+  width: 100%;
+  height: 100%;
 
   text-align: center;
   font-size: 30px;
@@ -19,10 +18,10 @@ const ButtonBox = styled.div`
   flex-grow: 1;
 `
 
-export const IncrementButton = ({incrementFunc}) => <ButtonBox color="green" onClick={incrementFunc}> 
+export const IncrementButton = ({incrementFunc}) => <ButtonBox onClick={incrementFunc}> 
   <PlusIcon />
 </ButtonBox>
 
-export const DecrementButton = ({decrementFunc}) => <ButtonBox color="red" onClick={decrementFunc}> 
+export const DecrementButton = ({decrementFunc}) => <ButtonBox onClick={decrementFunc}> 
   <MinusIcon />
 </ButtonBox>

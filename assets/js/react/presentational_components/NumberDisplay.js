@@ -8,7 +8,7 @@ const NumberBox = styled.div`
   border-radius: 10px;
 
   font-family: 'Press Start 2P';
-  font-size: 70px;
+  font-size: ${props => props.number < 99999 ? '70px' : '50px'};
   text-align: center;
   
   background-color: #95f442;
@@ -16,6 +16,6 @@ const NumberBox = styled.div`
   height: 100%;
 ` 
 
-export const NumberDisplay = ({ number }) => <NumberBox>
+export const NumberDisplay = ({ number }) => <NumberBox number={number}>
   <p>{ number }</p>
 </NumberBox>
