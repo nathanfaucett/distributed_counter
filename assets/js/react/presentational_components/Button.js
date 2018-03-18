@@ -20,9 +20,9 @@ const ButtonBox = styled.div`
 `
 
 export const IncrementButton = ({incrementFunc}) => <ButtonBox color="green" onClick={incrementFunc}> 
- <PlusIcon />
+  <PlusIcon />
 </ButtonBox>
 
 export const DecrementButton = ({decrementFunc}) => <ButtonBox color="red" onClick={decrementFunc}> 
-   <MinusIcon />
+  <MinusIcon />
 </ButtonBox>
