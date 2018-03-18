@@ -1,6 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const FlexCenter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 const NumberBox = styled.div`
   display: flex;
   justify-content: center;
@@ -17,5 +23,5 @@ const NumberBox = styled.div`
 ` 
 
 export const NumberDisplay = ({ number }) => <NumberBox number={number}>
-  <p>{ number }</p>
+  <FlexCenter><p>{ number }</p></FlexCenter>
 </NumberBox>
