@@ -1,5 +1,5 @@
 import { counts } from '../subReducers/counts'
-import { increment, decrement, receiveCounts, setMe,   } from '../../actions/simpleActions'
+import { increment, decrement, receiveCounts, setMe, setRoom } from '../../actions/simpleActions'
 
 const increment1action = increment();
 const decrement1action = decrement();
@@ -14,7 +14,8 @@ describe("counts", () => {
     expect(counts(undefined, {})).toEqual({
       me: null,
       additions: {},
-      subtractions: {}
+      subtractions: {},
+      room: null,
     });
   });
 
@@ -52,7 +53,7 @@ describe("counts", () => {
         additions: { a: 1, b: 2, c: 3 },
         subtractions: { a: 1, b: 2, c: 3 }
       });
-  
+
       let initalState = {
         additions: { a: 3, b: 2, c: 1 },
         subtractions: { a: 3, b: 2, c: 1 }
@@ -70,6 +71,12 @@ describe("counts", () => {
 
       expect(newState.additions).toEqual({ d: 1 });
       expect(newState.subtractions).toEqual({ d: 10 });
+    });
+  });
+
+  describe("setting room", () => {
+    it("sets the room", () => {
+      expect(counts(setRoom("aroom")).room).toEqual("aroom")
     });
   });
 });

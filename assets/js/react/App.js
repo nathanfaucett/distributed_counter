@@ -1,8 +1,9 @@
 import React from 'react'
 import styled, {ThemeProvider} from 'styled-components';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import { ConnectedNumberDisplay } from './connected_components/ConnectedNumberDisplay'
-import { ButtonPanel } from './presentational_components/ButtonPanel'
+import { ConnectedSettingsPage } from './connected_components/ConnectedSettingsPage'
+import { Counter } from './presentational_components/Counter'
 
 const Theme = {
   colors: {
@@ -20,21 +21,14 @@ const ScreenNormalizer = styled.div`
   height: 100vh;
 `
 
-const AppBox = styled.div`
-  display: grid;
-  grid-template: 30% 70% / 1fr;
-  width: 100vw;
-  height: 100vh;
-
-  max-width: 700px;
-  max-height: 900px;
-`
+const NormalizedCounter = () => <ScreenNormalizer><Counter /></ScreenNormalizer>
+const NormalizedSettingsPage = () => <ScreenNormalizer><SettingsPage /></ScreenNormalizer>
 
 export const App = () => <ThemeProvider theme={Theme}>
-  <ScreenNormalizer>
-    <AppBox>
-      <ConnectedNumberDisplay />
-      <ButtonPanel />
-    </AppBox>
-  </ScreenNormalizer>
+  <BrowserRouter>
+    <Switch>
+      <Route exact path='/' component={ConnectedSettingsPage}/>
+      <Route exact path='/counter' component={NormalizedCounter}/>
+    </Switch>
+  </BrowserRouter>
 </ThemeProvider>
