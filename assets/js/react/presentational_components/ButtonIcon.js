@@ -9,7 +9,7 @@ const IconLayout = styled.div`
   grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
 `
 
-const Plus = styled.div`
+export const Plus = styled.div`
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 1;
@@ -17,7 +17,7 @@ const Plus = styled.div`
   background-color: ${p => p.theme.colors.green};
 `
 
-const Plus2 = styled.div`
+export const Plus2 = styled.div`
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 2;
@@ -25,7 +25,7 @@ const Plus2 = styled.div`
   background-color: ${p => p.theme.colors.green};
 ` 
 
-const Minus = styled.div`
+export const Minus = styled.div`
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 2;
