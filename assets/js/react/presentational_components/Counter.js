@@ -15,8 +15,18 @@ const AppBox = styled.div`
   max-height: 900px;
 `
 
-export const Counter = () => <AppBox>
-  <ConnectedChannelDisplay />
-  <ConnectedNumberDisplay />
-  <ButtonPanel />
-</AppBox>
+
+export class Counter extends React.Component {
+  componentDidMount() {
+    const { channelName, ensureRoom } = this.props;
+    ensureRoom(channelName);
+  }
+
+  render() {
+   return <AppBox>
+    <ConnectedChannelDisplay />
+    <ConnectedNumberDisplay />
+    <ButtonPanel />
+   </AppBox>;
+  }
+}

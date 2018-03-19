@@ -3,7 +3,7 @@ import styled, {ThemeProvider} from 'styled-components';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import { ConnectedSettingsPage } from './connected_components/ConnectedSettingsPage'
-import { Counter } from './presentational_components/Counter'
+import { ConnectedCounter } from './connected_components/ConnectedCounter'
 
 const Theme = {
   colors: {
@@ -24,7 +24,7 @@ const ScreenNormalizer = styled.div`
   height: 100vh;
 `
 
-const NormalizedCounter = () => <ScreenNormalizer><Counter /></ScreenNormalizer>
+const NormalizedCounter = () => <ScreenNormalizer><ConnectedCounter /></ScreenNormalizer>
 const NormalizedSettingsPage = () => <ScreenNormalizer><ConnectedSettingsPage /></ScreenNormalizer>
 
 export const App = () => <ThemeProvider theme={Theme}>

@@ -17,5 +17,6 @@ defmodule DistributedCounterWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/counter/:name", PageController, :index
   end
 end

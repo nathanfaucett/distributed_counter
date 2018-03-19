@@ -102,6 +102,7 @@ export const SettingsPage = ({setRoom, me, room, setRandomRoom, goToRoom}) => <P
       <p>Channel</p>
       <StyledInput onChange={event => setRoom(event.target.value)} spellcheck="false" value={room} placeholder="Pick a Channel Name!"/>
     </FormField>
+
     <ButtonPanel>
       <StyledButton onClick={setRandomRoom}>
         Random
