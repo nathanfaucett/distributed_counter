@@ -7,14 +7,14 @@ export const setMe = me => ({
 })
 
 export const receiveCounts = counts => ({
-    type: actions.RECEIVE_COUNTS,
-    additions: defaultTo({})(counts.additions),
-    subtractions: defaultTo({})(counts.subtractions),
+  type: actions.RECEIVE_COUNTS,
+  additions: defaultTo({})(counts.additions),
+  subtractions: defaultTo({})(counts.subtractions),
  })
 
 export const increment = (amount=1) => ({
-    type: actions.INCREMENT,
-    amount
+  type: actions.INCREMENT,
+  amount
 })
 
 export const decrement = (amount=1) => ({

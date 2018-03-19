@@ -13,8 +13,7 @@ import { mainReducer } from "./redux/reducers/combinedReducer";
 import { App } from "./react/App";
 import { updateStoreWithRecievedCounts } from './lib/socket_wrapper'
 
-// import { setUsername } from './lib/username_functions'
-const setUsername = () => 1; //todo what the funk
+import { loadPreviousRoomToStore, loadPreviousUserToStore } from './lib/initalizers'
 
 let channel = socket.channel("counter:subtopic", {});
 channel.join()
@@ -23,11 +22,11 @@ const middlewares = [thunk.withExtraArgument({channel})]
 const store = createStore(mainReducer, applyMiddleware(...middlewares));
 window.store = store;
 
-setUsername(store);
-channel.on("update", updateStoreWithRecievedCounts(store));
+// initalizers
+loadPreviousRoomToStore(store);
+loadPreviousUserToStore(store);
+updateStoreWithRecievedCounts(channel)(store);
 
-const setupApp = store =>  <Provider store={store}>
-  <App />
-</Provider>
-
+// render the APP
+const setupApp = store => <Provider store={store}><App /></Provider>;
 ReactDOM.render(setupApp(store), document.getElementById('root'));

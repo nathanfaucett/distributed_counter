@@ -30,9 +30,9 @@ describe("highestOf", () => {
 
 describe("mergeCount", () => {
   it("merges counts", () => {
-    expect(mergeCounts({a: 1, b: 2}, {a: 2, b:1})).toEqual({a: 2, b: 2})
-    expect(mergeCounts({a: 1}, {b: 1})).toEqual({a: 1, b: 1})
-    expect(mergeCounts({a: 2, c: 1}, {a: 1, b: 2, c: 3})).toEqual({a: 2, b: 2, c: 3})
+    expect(mergeCounts({a: 1, b: 2}, {a: 2, b:1})).toEqual({a: 2, b: 2});
+    expect(mergeCounts({a: 1}, {b: 1})).toEqual({a: 1, b: 1});
+    expect(mergeCounts({a: 2, c: 1}, {a: 1, b: 2, c: 3})).toEqual({a: 2, b: 2, c: 3});
   });
 })
 

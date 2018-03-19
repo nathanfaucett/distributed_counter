@@ -76,7 +76,7 @@ describe("counts", () => {
 
   describe("setting room", () => {
     it("sets the room", () => {
-      expect(counts(setRoom("aroom")).room).toEqual("aroom")
+      expect(counts(undefined, setRoom("aroom")).room).toEqual("aroom")
     });
   });
 });

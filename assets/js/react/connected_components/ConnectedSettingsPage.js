@@ -1,16 +1,17 @@
 import React from 'react'
 
-import { setMe, setRoom } from '../../redux/actions/simpleActions'
+import { setMeAndWriteStorage, setRoomAndWriteStorage } from '../../redux/actions/asyncActions';
 import { SettingsPage } from  '../presentational_components/SettingsPage'
 import { connect } from 'react-redux'
 
-let mapStateToProps = state => ({
+const mapStateToProps = state => ({
   me: state.counts.me,
   room: state.counts.room,
 });
-let mapDispatchToProps = dispatch => ({
-  setMe: me => dispatch(setMe(me)),
-  setRoom: room => dispatch(setRoom(room))
+
+const mapDispatchToProps = dispatch => ({
+  setMe: me => dispatch(setMeAndWriteStorage(me)),
+  setRoom: room => dispatch(setRoomAndWriteStorage(room))
 });
 
 export const ConnectedSettingsPage = connect(

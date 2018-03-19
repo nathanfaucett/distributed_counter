@@ -22,12 +22,12 @@ const ScreenNormalizer = styled.div`
 `
 
 const NormalizedCounter = () => <ScreenNormalizer><Counter /></ScreenNormalizer>
-const NormalizedSettingsPage = () => <ScreenNormalizer><SettingsPage /></ScreenNormalizer>
+const NormalizedSettingsPage = () => <ScreenNormalizer><ConnectedSettingsPage /></ScreenNormalizer>
 
 export const App = () => <ThemeProvider theme={Theme}>
   <BrowserRouter>
     <Switch>
-      <Route exact path='/' component={ConnectedSettingsPage}/>
+      <Route exact path='/' component={NormalizedSettingsPage}/>
       <Route exact path='/counter' component={NormalizedCounter}/>
     </Switch>
   </BrowserRouter>
