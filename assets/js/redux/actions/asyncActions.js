@@ -1,19 +1,35 @@
-import { increment, decrement, setMe, setRoom } from './simpleActions'
+import { increment, decrement, setMe, setRoom, receiveCounts, zeroCounts, setChirperInterval } from './simpleActions'
 import { pushCounts } from '../../lib/socket_wrapper';
 import { setRoomInStorage, setUsernameInStorage } from '../../lib/local_storage'
 import { randRoom } from '../../lib/initalizers'
 import { isEmpty } from 'ramda'
 
-export const setRoom = room => (dispatch, getState, {API}) => {
-  
+const countsRecieverFunction = dispatch => counts => dispatch(receiveCounts(counts));
+const chirpFunction = (getState, API) => () => {
+  const {counts: {additions, subtractions}} = getState();
+  API.pushCounts({additions, subtractions});
+};
+
+export const setRoomAndUpdateChannel = room => (dispatch, getState, {API}) => {
+  dispatch(setRoomAndWriteStorage(room));
+  dispatch(zeroCounts());
+
+  API.setNewChannel(room);
+  API.setCountsRecieverFunction(countsRecieverFunction(dispatch));
+
+  const {counts: {chirperInterval: chirperInterval}} = getState();
+
+  if (chirperInterval) {
+    clearInterval(chirperInterval)
+   }
+
+  const newChirperInterval = setInterval(chirpFunction, 5000)
+  dispatch(setChirperInterval(newChirperInterval))
 }
 
 export const goToRoom = history => (dispatch, getState) => {
- let room = getState().counts.room
-  if (isEmpty(room)) {
-    room = randRoom();
-    dispatch(setRoomAndWriteStorage(room))
-  }
+  let {counts: room} = getState();
+  if (isEmpty(room)) { dispatch(setRoomAndUpdateChannel(randRoom())) }
   history.push(`/counter/${encodeURI(room)}`);
 }
 
@@ -29,12 +45,12 @@ export const setRoomAndWriteStorage = room => dispatch => {
 
 export const incrementAndNotify = (amount=1) => (dispatch, getState, {API}) =>{
   dispatch(increment(amount));
-  const {counts} = getState();
-  API.pushCounts(counts);
+  const {counts: {additions, subtractions}} = getState();
+  API.pushCounts({additions, subtractions});
 }
 
 export const decrementAndNotify = (amount=1) => (dispatch, getState, {API}) => {
   dispatch(decrement(amount));
-  const {counts} = getState();
-  API.pushCounts(counts);
+  const {counts: {additions, subtractions}} = getState();
+  API.pushCounts({additions, subtractions});
 }

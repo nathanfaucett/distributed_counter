@@ -27,6 +27,11 @@ export const setRoom = room => ({
   room
 });
 
-export const zeroCounts = () => {
+export const zeroCounts = () => ({
   type: actions.ZERO_COUNTS
-}
+});
+
+export const setChirperInterval = chirperInterval => ({
+  type: actions.SET_CHIRPER_INTERVAL,
+  chirperInterval
+});

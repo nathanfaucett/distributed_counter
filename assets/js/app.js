@@ -7,13 +7,13 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
-import { socket, API } from "./socket";
+import { socket, API as SocketAPI} from "./socket";
 import { mainReducer } from "./redux/reducers/combinedReducer";
 
 import { App } from "./react/App";
 import { loadPreviousRoomToStore, loadPreviousUserToStore } from './lib/initalizers'
 
-const API = new API(socket);
+const API = new SocketAPI(socket);
 
 const middlewares = [thunk.withExtraArgument({API})]
 const store = createStore(mainReducer, applyMiddleware(...middlewares));
