@@ -10,7 +10,7 @@ const FlexCenter = styled.div`
 
 const Page = styled.div`
   display: grid;
-  grid-template: 20% 1fr / 1fr;
+  grid-template: 35% 1fr / 1fr;
 
   width: 100%;
   height: 100%;
@@ -19,13 +19,20 @@ const Page = styled.div`
 `;
 
 const TitleBox = styled(FlexCenter)`
-  background-color: ${props => props.theme.colors.red};
-  color: white;
-
+  background-color: ${props => props.theme.colors.lightGreen};
+  border-radius: 10px;
   font-size: 60px;
 
-  @media screen and (max-width: 400px) {
-    font-size: 30px;
+  @media screen and (max-width: 720px) {
+    font-size: 50px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 40px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 30px
   }
 `;
 
@@ -53,7 +60,25 @@ const Button = styled(Link)`
 `;
 
 const StyledInput = styled.input`
+  width: calc(100% - 10px);
+  height: 60px;
 
+  text-align: center;
+
+  border: hidden;
+  font-family: 'Press Start 2P';
+  font-size: 20px;
+
+  color: grey;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:after {
+    border-top: black 3px solid;
+    width: 200px;
+  }
 `;
 
 export const SettingsPage = ({setMe, setRoom, me, room}) => <Page>
@@ -71,5 +96,5 @@ export const SettingsPage = ({setMe, setRoom, me, room}) => <Page>
     </FormField>
   </Form>
 
-  <Button to="/counter">Join</Button>
+  <Button to="/counter">⟶</Button>
 </Page>

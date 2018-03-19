@@ -8,7 +8,8 @@ import { Counter } from './presentational_components/Counter'
 const Theme = {
   colors: {
     green: "#34700d",
-    red: "#d72c2f"
+    red: "#d72c2f",
+    lightGreen: "#95f442",
   }
 }
 

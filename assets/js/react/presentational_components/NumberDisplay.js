@@ -17,7 +17,7 @@ const NumberBox = styled.div`
   font-size: ${props => props.number < 99999 ? '70px' : '50px'};
   text-align: center;
 
-  background-color: #95f442;
+  background-color: ${props => props.theme.colors.lightGreen};
   width: 100%
   height: 100%;
 `;
