@@ -40,6 +40,7 @@ const Form = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
+  align-items: center;
 
   font-size: 30px;
 `;
@@ -49,15 +50,27 @@ const FormField = styled.div`
   flex-flow: column wrap;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
 `;
 
-const Button = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${props => props.theme.colors.green};
-  height: 50px;
+const StyledButton = styled(FlexCenter)`
+  margin: 10px;
+  width: 220px;
+  height: 60px;
+  background-color: ${props => props.theme.colors.red};
+  text-align: center;
+  border-radius: 20px;
+
+  color: white;
+  user-select: none;
 `;
+
+const ButtonPanel = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100%;
+`
 
 const StyledInput = styled.input`
   width: calc(100% - 10px);
@@ -75,26 +88,26 @@ const StyledInput = styled.input`
     outline: none;
   }
 
-  &:after {
-    border-top: black 3px solid;
-    width: 200px;
+  @media screen and (max-width: 500px) {
+    font-size: 10px
   }
 `;
 
-export const SettingsPage = ({setMe, setRoom, me, room}) => <Page>
+export const SettingsPage = ({setRoom, me, room, setRandomRoom, history}) => <Page>
   <TitleBox><div>Count Me In!</div></TitleBox>
 
   <Form>
     <FormField>
-      <p>Username</p>
-      <StyledInput onChange={event => setMe(event.target.value)} value={me}/>
-    </FormField>
-
-    <FormField>
       <p>Channel</p>
-      <StyledInput onChange={event => setRoom(event.target.value)} value={room}/>
+      <StyledInput onChange={event => setRoom(event.target.value)} spellcheck="false" value={room}/>
     </FormField>
+    <ButtonPanel>
+      <StyledButton onClick={setRandomRoom}>
+        Random
+      </StyledButton>
+      <StyledButton>
+        GO!
+      </StyledButton>
+    </ButtonPanel>
   </Form>
-
-  <Button to="/counter">⟶</Button>
 </Page>
