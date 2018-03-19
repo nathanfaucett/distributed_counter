@@ -23,6 +23,7 @@ const TitleBox = styled(FlexCenter)`
   background-color: ${props => props.theme.colors.lightGreen};
   border-radius: 10px;
   font-size: 60px;
+  user-select: none;
 
   @media screen and (max-width: 720px) {
     font-size: 50px;
