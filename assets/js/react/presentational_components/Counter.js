@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { ConnectedChannelDisplay } from '../connected_components/ConnectedChannelDisplay'
 import { ConnectedNumberDisplay } from '../connected_components/ConnectedNumberDisplay'
 import { ButtonPanel } from './ButtonPanel'
 
 const AppBox = styled.div`
   display: grid;
-  grid-template: 30% 70% / 1fr;
+  grid-template:  5% 30% 65% / 1fr;
   width: 100vw;
   height: 100vh;
 
@@ -15,6 +16,7 @@ const AppBox = styled.div`
 `
 
 export const Counter = () => <AppBox>
+  <ConnectedChannelDisplay />
   <ConnectedNumberDisplay />
   <ButtonPanel />
 </AppBox>

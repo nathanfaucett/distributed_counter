@@ -7,7 +7,8 @@ const USERNAME = "USERNAME";
 const ROOM = "ROOM";
 
 const randomValue = faker.internet.userName;
-const getValueOrDefault = key => localStorage.getItem(key) || randomValue()
+const getValue = key => localStorage.getItem(key)
+const getValueOrDefault = key => getValue(key) || randomValue()
 const setValue = (key, val) => localStorage.setItem(key, val);
 
 export const setUsernameInStorage = username => setValue(USERNAME, username);
@@ -19,8 +20,4 @@ export const getPreviousUsername = store => {
   return username;
 }
 
-export const getPreviousRoom = store => {
-  const room = getValueOrDefault(ROOM);
-  setRoomInStorage(room);
-  return room;
-}
+export const getPreviousRoom = () => getValue(ROOM) || "";

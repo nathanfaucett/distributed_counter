@@ -10,6 +10,8 @@ const Theme = {
     green: "#34700d",
     red: "#d72c2f",
     lightGreen: "#95f442",
+    lightGrey: "gray",
+    drakGrey: "black",
   }
 }
 
@@ -29,7 +31,7 @@ export const App = () => <ThemeProvider theme={Theme}>
   <BrowserRouter>
     <Switch>
       <Route exact path='/' component={NormalizedSettingsPage}/>
-      <Route exact path='/counter' component={NormalizedCounter}/>
+      <Route path='/counter/:channelName' component={NormalizedCounter}/>
     </Switch>
   </BrowserRouter>
 </ThemeProvider>

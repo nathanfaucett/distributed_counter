@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { goToRoom } from '../../redux/actions/asyncActions';
 
 const FlexCenter = styled.div`
   display: flex;
@@ -93,19 +94,19 @@ const StyledInput = styled.input`
   }
 `;
 
-export const SettingsPage = ({setRoom, me, room, setRandomRoom, history}) => <Page>
+export const SettingsPage = ({setRoom, me, room, setRandomRoom, goToRoom}) => <Page>
   <TitleBox><div>Count Me In!</div></TitleBox>
 
   <Form>
     <FormField>
       <p>Channel</p>
-      <StyledInput onChange={event => setRoom(event.target.value)} spellcheck="false" value={room}/>
+      <StyledInput onChange={event => setRoom(event.target.value)} spellcheck="false" value={room} placeholder="Pick a Channel Name!"/>
     </FormField>
     <ButtonPanel>
       <StyledButton onClick={setRandomRoom}>
         Random
       </StyledButton>
-      <StyledButton>
+      <StyledButton onClick={goToRoom}>
         GO!
       </StyledButton>
     </ButtonPanel>
