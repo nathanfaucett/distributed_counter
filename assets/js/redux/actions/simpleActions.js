@@ -26,3 +26,7 @@ export const setRoom = room => ({
   type: actions.SET_ROOM,
   room
 });
+
+export const zeroCounts = () => {
+  type: actions.ZERO_COUNTS
+}

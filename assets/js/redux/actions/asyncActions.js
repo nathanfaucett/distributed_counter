@@ -4,7 +4,9 @@ import { setRoomInStorage, setUsernameInStorage } from '../../lib/local_storage'
 import { randRoom } from '../../lib/initalizers'
 import { isEmpty } from 'ramda'
 
-const notifyCounts = channel => ({additions, subtractions}) => pushCounts(channel)({additions, subtractions});
+export const setRoom = room => (dispatch, getState, {API}) => {
+  
+}
 
 export const goToRoom = history => (dispatch, getState) => {
  let room = getState().counts.room
@@ -25,14 +27,14 @@ export const setRoomAndWriteStorage = room => dispatch => {
   setRoomInStorage(room);
 }
 
-export const incrementAndNotify = (amount=1) => (dispatch, getState, {channel}) =>{
+export const incrementAndNotify = (amount=1) => (dispatch, getState, {API}) =>{
   dispatch(increment(amount));
   const {counts} = getState();
-  notifyCounts(channel)(counts);
+  API.pushCounts(counts);
 }
 
-export const decrementAndNotify = (amount=1) => (dispatch, getState, {channel}) => {
+export const decrementAndNotify = (amount=1) => (dispatch, getState, {API}) => {
   dispatch(decrement(amount));
   const {counts} = getState();
-  notifyCounts(channel)(counts);
+  API.pushCounts(counts);
 }
