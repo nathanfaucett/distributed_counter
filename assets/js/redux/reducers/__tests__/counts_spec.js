@@ -1,5 +1,5 @@
 import { counts } from '../subReducers/counts'
-import { increment, decrement, receiveCounts, setMe, setRoom } from '../../actions/simpleActions'
+import { increment, decrement, receiveCounts, setMe, setRoom, zeroCounts } from '../../actions/simpleActions'
 
 const increment1action = increment();
 const decrement1action = decrement();
@@ -76,4 +76,16 @@ describe("counts", () => {
       expect(newState.subtractions).toEqual({ d: 10 });
     });
   });
+
+  describe("zeroCounts() action", () => {
+    it("can zero the counts if there are any", () => {
+      expect(counts({additions: {a: 1, b: 2}, subtractions: {a: 1, b: 2}}, zeroCounts()))
+        .toEqual({additions: {}, subtractions: {}});
+    });
+
+    it("no ops if there are no counts", () => {
+      expect(counts({additions: {}, subtractions: {}}, zeroCounts()))
+      .toEqual({additions: {}, subtractions: {}});
+    });
+  })
 });
