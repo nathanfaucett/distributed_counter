@@ -9,13 +9,11 @@ const userName = 'grantjamespowell';
 const setMeAction = setMe(userName);
 
 describe("counts", () => {
-
   it("sets defaults correctly", () => {
     expect(counts(undefined, {})).toEqual({
       me: null,
       additions: {},
       subtractions: {},
-      room: null,
     });
   });
 
@@ -71,12 +69,6 @@ describe("counts", () => {
 
       expect(newState.additions).toEqual({ d: 1 });
       expect(newState.subtractions).toEqual({ d: 10 });
-    });
-  });
-
-  describe("setting room", () => {
-    it("sets the room", () => {
-      expect(counts(undefined, setRoom("aroom")).room).toEqual("aroom")
     });
   });
 });

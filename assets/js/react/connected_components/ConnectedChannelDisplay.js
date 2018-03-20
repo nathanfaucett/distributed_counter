@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 const mapStateToProps = state => ({
-  channelName: state.counts.room
+  channelName: state.channel.room
 })
 
 const mapDistpatchToProps = (dispatch, { history }) => ({
-  homePage: () => history.push('/')
+  goToPage: page => () => history.push(page)
 });
 
 export const ConnectedChannelDisplay = withRouter(connect(mapStateToProps, mapDistpatchToProps)(ChannelDisplay));

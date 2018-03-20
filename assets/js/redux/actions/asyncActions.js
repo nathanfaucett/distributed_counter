@@ -27,7 +27,7 @@ export const setRoomAndUpdateChannel = room => (dispatch, getState, {API}) => {
 }
 
 export const goToRoom = history => (dispatch, getState) => {
-  let { counts: { room } } = getState();
+  let { channel: { room } } = getState();
   if (isEmpty(room)) { dispatch(setRoomAndUpdateChannel(randRoom())) }
   history.push(`/counter/${encodeURI(room)}`);
 }

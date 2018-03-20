@@ -35,8 +35,8 @@ const EmptyDiv = styled.div`
   width: 35px;
 `
 
-export const ChannelDisplay = ({channelName, homePage}) => <DisplayBox onClick={homePage}>
+export const ChannelDisplay = ({channelName, goToPage}) => <DisplayBox onClick={goToPage('/')}>
   <EmptyDiv />
-  <p>{channelName}</p>
+    <p>{channelName}</p>
   <HamburgerMenu />
 </DisplayBox>

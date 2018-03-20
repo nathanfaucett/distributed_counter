@@ -8,7 +8,7 @@ import { randRoom } from '../../lib/initalizers'
 import { withRouter } from 'react-router'
 
 const mapStateToProps = state => ({
-  room: state.counts.room,
+  room: state.channel.room,
 });
 
 const mapDispatchToProps = (dispatch, {history}) => ({

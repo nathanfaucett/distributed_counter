@@ -95,7 +95,7 @@ const StyledInput = styled.input`
   }
 `;
 
-export const SettingsPage = ({setRoom, me, room, setRandomRoom, goToRoom}) => <Page>
+export const SettingsPage = ({me, room, setRandomRoom, setRoom, goToRoom}) => <Page>
   <TitleBox><div>Count Me In!</div></TitleBox>
 
   <Form>
