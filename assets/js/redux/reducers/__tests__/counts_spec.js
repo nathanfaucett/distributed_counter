@@ -43,6 +43,11 @@ describe("counts", () => {
       expect(counts({ me: userName, subtractions : { [userName]: 10 } }, decrement1action)).
         toEqual(expect.objectContaining({me: userName, subtractions: { [userName]: 11 } }))
     });
+
+    it("will not delete other peoples counts", () => {
+      expect(counts({ me: userName, additions: {a: 1} }, increment1action)).
+        toEqual(expect.objectContaining({me: userName, additions: { [userName]: 1, a: 1 } }))
+    });
   });
 
   describe("merging counts", () => {
