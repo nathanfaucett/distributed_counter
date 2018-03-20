@@ -12,9 +12,11 @@ export const counts = (state={additions: {}, subtractions: {}, me: null}, action
         subtractions: mergeCounts(state.subtractions, action.subtractions)
       })
     case actions.INCREMENT:
-      return merge(state, { additions: { [state.me]: addTo(state.additions[state.me], action.amount) }})
+      const newAdditions = merge(state.additions,  { [state.me]: addTo(state.additions[state.me], action.amount) });
+      return merge(state, { additions: newAdditions })
     case actions.DECREMENT:
-      return merge(state, { subtractions: { [state.me]: addTo(state.subtractions[state.me], action.amount) }})
+      const newSubtractions = merge(state.subtractions, { [state.me]: addTo(state.subtractions[state.me], action.amount) });
+      return merge(state, { subtractions: newSubtractions});
     case actions.ZERO_COUNTS:
       return merge(state, {additions: {}, subtractions: {}});
     default:
