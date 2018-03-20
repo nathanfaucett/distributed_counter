@@ -1,5 +1,4 @@
 import { increment, decrement, setMe, setRoom, receiveCounts, zeroCounts, setChirperInterval } from './simpleActions'
-import { pushCounts } from '../../lib/socket_wrapper';
 import { setRoomInStorage, setUsernameInStorage } from '../../lib/local_storage'
 import { randRoom } from '../../lib/initalizers'
 import { isEmpty } from 'ramda'
@@ -28,7 +27,7 @@ export const setRoomAndUpdateChannel = room => (dispatch, getState, {API}) => {
 }
 
 export const goToRoom = history => (dispatch, getState) => {
-  let {counts: room} = getState();
+  let { counts: { room } } = getState();
   if (isEmpty(room)) { dispatch(setRoomAndUpdateChannel(randRoom())) }
   history.push(`/counter/${encodeURI(room)}`);
 }

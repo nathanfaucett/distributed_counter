@@ -14,8 +14,8 @@ export class API {
     this.setCountsRecieverFunction = this.setCountsRecieverFunction.bind(this);
   }
 
-  pushCounts() {
-    pushCountsToChannel(this.channel);
+  pushCounts(counts) {
+    pushCountsToChannel(this.channel)(counts);
   };
 
   setNewChannel(roomName) {

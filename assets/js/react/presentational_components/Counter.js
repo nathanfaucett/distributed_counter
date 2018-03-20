@@ -15,11 +15,10 @@ const AppBox = styled.div`
   max-height: 900px;
 `
 
-
 export class Counter extends React.Component {
   componentDidMount() {
-    const { channelName, ensureRoom } = this.props;
-    ensureRoom(channelName);
+    const { channelName, ensureChannelMatchesRoom } = this.props;
+    ensureChannelMatchesRoom(channelName);
   }
 
   render() {
