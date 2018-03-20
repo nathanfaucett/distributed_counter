@@ -4,10 +4,7 @@ export const socket = new Socket("/socket", {params: {token: window.userToken}})
 socket.connect()
 
 const pushCountsToChannel = channel => counts => channel.push("update", { body: counts });
-const channelNameFromRoomName = roomName => { 
-  console.log("ROOOMNAME", roomName)
-  return `counter:${encodeURI(roomName.toString())}` 
-};
+const channelNameFromRoomName = roomName => `counter:${encodeURI(roomName.toString())}`;
 
 export class API {
   constructor(socket) {
