@@ -22,7 +22,7 @@ export const setRoomAndUpdateChannel = room => (dispatch, getState, {API}) => {
     clearInterval(chirperInterval)
    }
 
-  const newChirperInterval = setInterval(chirpFunction, 5000)
+  const newChirperInterval = setInterval(chirpFunction(getState, API), 5000)
   dispatch(setChirperInterval(newChirperInterval))
 }
 
