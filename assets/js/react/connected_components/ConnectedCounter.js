@@ -9,7 +9,7 @@ export const mapDispatchToProps = (dispatch, getState) => ({
   ensureChannelMatchesRoom: room => {
     dispatch(setRoomAndUpdateChannel(room));
   }
-})
+});
 
 
 export const ConnectedCounter = withRouter(connect(mapStateToProps, mapDispatchToProps)(Counter));
