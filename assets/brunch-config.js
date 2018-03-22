@@ -45,7 +45,8 @@ exports.config = {
   // Configure your plugins
   plugins: {
     babel: {
-      ignore: [/vendor/]
+      ignore: [/vendor/],
+      presets: ["jest", "react", "es2015", "stage-0"]
     }
   },
 

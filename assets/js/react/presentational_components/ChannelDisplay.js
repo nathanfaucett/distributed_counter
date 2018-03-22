@@ -7,7 +7,7 @@ const DisplayBox = styled.div`
   align-items: center;
   font-family: 'Press Start 2P';
   background-color: ${props => props.theme.colors.lightGrey};
-  color: white;//${props => props.theme.colors.darkGrey};
+  color: white;
   font-size: 10px;
   margin-bottom: 1px;
   user-select: none;
@@ -39,4 +39,4 @@ export const ChannelDisplay = ({channelName, goToPage}) => <DisplayBox onClick={
   <EmptyDiv />
     <p>{channelName}</p>
   <HamburgerMenu />
-</DisplayBox>
+</DisplayBox>;
