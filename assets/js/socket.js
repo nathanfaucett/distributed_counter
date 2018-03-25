@@ -8,17 +8,17 @@ const channelNameFromRoomName = roomName => `counter:${encodeURI(roomName.toStri
 
 export class API {
   constructor(socket) {
-    this.socket = socket
+    this.socket = socket;
     this.pushCounts = this.pushCounts.bind(this);
     this.setNewChannel = this.setNewChannel.bind(this);
     this.setCountsRecieverFunction = this.setCountsRecieverFunction.bind(this);
   }
 
-  pushCounts(counts) {
+  pushCounts = (counts) => {
     pushCountsToChannel(this.channel)(counts);
   };
 
-  setNewChannel(roomName) {
+  setNewChannel = (roomName) => {
     const channelName = channelNameFromRoomName(roomName);
 
     if (this.channel) {
@@ -27,7 +27,7 @@ export class API {
 
     this.channel = this.socket.channel(channelName);
     this.channel.join();
-  }
+  };
 
   setCountsRecieverFunction(onUpdateFunc) {
     this.channel.on("update", ({body: counts}) => onUpdateFunc(counts))
