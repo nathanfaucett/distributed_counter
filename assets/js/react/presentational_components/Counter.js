@@ -17,8 +17,7 @@ const AppBox = styled.div`
 
 export class Counter extends React.Component {
   componentDidMount() {
-    const { channelName, ensureChannelMatchesRoom } = this.props;
-    ensureChannelMatchesRoom(channelName);
+    this.props.ensureChannel();
   }
 
   render() {

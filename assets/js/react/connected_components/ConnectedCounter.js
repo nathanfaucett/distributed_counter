@@ -5,10 +5,8 @@ import { withRouter } from 'react-router-dom'
 
 export const mapStateToProps = (state, { match: { params: { channelName: channelName } }}) => ({ channelName });
 
-export const mapDispatchToProps = (dispatch) => ({
-  ensureChannelMatchesRoom: room => {
-    dispatch(setRoomAndUpdateChannel(room));
-  }
+export const mapDispatchToProps = (dispatch, { match: { params: { channelName: channelName } }}) => ({
+  ensureChannel: () => dispatch(setRoomAndUpdateChannel(channelName))
 });
 
 
