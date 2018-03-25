@@ -6,8 +6,8 @@
 use Mix.Config
 
 # General application configuration
-config :distributed_counter,
-  ecto_repos: [DistributedCounter.Repo]
+# config :distributed_counter,
+#   ecto_repos: [DistributedCounter.Repo]
 
 # Configures the endpoint
 config :distributed_counter, DistributedCounterWeb.Endpoint,
