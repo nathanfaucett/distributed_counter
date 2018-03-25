@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="272px" height="120px" viewBox="0 0 272 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>minus_down</title>
+    <defs>
+        <rect id="path-1" x="104" y="50" width="64" height="12"></rect>
+        <filter x="-1.6%" y="-8.3%" width="103.1%" height="133.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.2 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-1.6%" y="-8.3%" width="103.1%" height="133.3%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="minus_down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Minus" transform="translate(0.000000, 4.000000)">
+            <path d="M268,108 L268,112 L264,112 L264,116 L8,116 L8,112 L4,112 L4,108 L0,108 L0,12 L4,12 L4,8 L8,8 L8,4 L264,4 L264,8 L268,8 L268,12 L272,12 L272,108 L268,108 Z" id="Rectangle-Copy-3" fill="#D21C4B"></path>
+            <path d="M268,104 L268,108 L264,108 L264,112 L8,112 L8,108 L4,108 L4,104 L0,104 L0,8 L4,8 L4,4 L8,4 L8,0 L264,0 L264,4 L268,4 L268,8 L272,8 L272,104 L268,104 Z" id="Rectangle-Copy-2" fill="#F73B6B"></path>
+            <g id="Rectangle-2-Copy">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill-opacity="0.1" fill="#000000" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

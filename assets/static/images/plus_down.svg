@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="272px" height="120px" viewBox="0 0 272 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>plus_down</title>
+    <defs>
+        <path d="M142,54 L168,54 L168,66 L142,66 L142,92 L130,92 L130,66 L104,66 L104,54 L130,54 L130,28 L142,28 L142,54 Z" id="path-1"></path>
+        <filter x="-1.6%" y="-1.6%" width="103.1%" height="106.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.2 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-1.6%" y="-1.6%" width="103.1%" height="106.2%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="plus_down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M268,112 L268,116 L264,116 L264,120 L8,120 L8,116 L4,116 L4,112 L0,112 L0,16 L4,16 L4,12 L8,12 L8,8 L264,8 L264,12 L268,12 L268,16 L272,16 L272,112 L268,112 Z" id="Rectangle-Copy" fill="#08D550"></path>
+        <path d="M268,108 L268,112 L264,112 L264,116 L8,116 L8,112 L4,112 L4,108 L0,108 L0,12 L4,12 L4,8 L8,8 L8,4 L264,4 L264,8 L268,8 L268,12 L272,12 L272,108 L268,108 Z" id="Rectangle" fill="#0AEE5A"></path>
+        <g id="Rectangle-2-Copy">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <use fill-opacity="0.1" fill="#000000" fill-rule="evenodd" xlink:href="#path-1"></use>
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>
