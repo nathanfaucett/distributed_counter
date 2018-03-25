@@ -11,7 +11,7 @@ const AppBox = styled.div`
   width: 100vw;
   height: 100vh;
 
-  max-width: 700px;
+  max-width: 450px;
   max-height: 900px;
 `
 
