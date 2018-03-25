@@ -9,7 +9,6 @@ const DisplayBox = styled.div`
   background-color: ${props => props.theme.colors.lightGrey};
   color: white;
   font-size: 10px;
-  margin-bottom: 1px;
   user-select: none;
 `;
 

@@ -11,13 +11,15 @@ const NumberBox = styled.div`
   display: flex;
   justify-content: center;
 
-  border-radius: 10px;
-
   font-family: 'Press Start 2P';
-  font-size: ${props => props.number < 99999 ? '70px' : '50px'};
+  font-size: ${props => props.number < 9999 ? '70px' : '50px'};
   text-align: center;
 
-  background-color: ${props => props.theme.colors.lightGreen};
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #676B74;
+  background-image: url('/images/screen.svg');
+
   width: 100%
   height: 100%;
   overflow: hidden;

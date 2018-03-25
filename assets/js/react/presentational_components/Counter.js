@@ -7,11 +7,11 @@ import { ButtonPanel } from './ButtonPanel'
 
 const AppBox = styled.div`
   display: grid;
-  grid-template:  5% 30% 65% / 1fr;
+  grid-template:  5% 38% 57% / 1fr;
   width: 100vw;
   height: 100vh;
 
-  max-width: 450px;
+  max-width: 400px;
   max-height: 900px;
 `
 

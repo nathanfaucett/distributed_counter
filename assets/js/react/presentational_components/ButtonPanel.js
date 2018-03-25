@@ -14,6 +14,7 @@ const ButtonPanelBox = styled.div`
 
   width: 100%;
   height: 100%;
+  background-color: #f3f5f6;
 `;
 
 export const ButtonPanel = () => <ButtonPanelBox>
