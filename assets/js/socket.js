@@ -1,10 +1,15 @@
-import { Socket } from "phoenix"
+import { Socket } from "phoenix";
+import { v4 } from "uuid";
 
-export const socket = new Socket("/socket", {params: {token: window.userToken}})
-socket.connect()
+export const socket = new Socket("/socket", {
+  params: { token: window.userToken }
+});
+socket.connect();
 
-const pushCountsToChannel = channel => counts => channel.push("update", { body: counts });
-const channelNameFromRoomName = roomName => `counter:${encodeURI(roomName.toString())}`;
+const pushCountsToChannel = channel => counts =>
+  channel.push("update", { body: counts });
+const channelNameFromRoomName = (roomName, password) =>
+  `counter:${encodeURI(roomName.toString())}:${password}`;
 
 export class API {
   constructor(socket) {
@@ -14,12 +19,12 @@ export class API {
     this.setCountsRecieverFunction = this.setCountsRecieverFunction.bind(this);
   }
 
-  pushCounts = (counts) => {
+  pushCounts = counts => {
     pushCountsToChannel(this.channel)(counts);
   };
 
-  setNewChannel = (roomName) => {
-    const channelName = channelNameFromRoomName(roomName);
+  setNewChannel = (roomName, password) => {
+    const channelName = channelNameFromRoomName(roomName, password);
 
     if (this.channel) {
       this.channel.leave();
@@ -30,6 +35,6 @@ export class API {
   };
 
   setCountsRecieverFunction(onUpdateFunc) {
-    this.channel.on("update", ({body: counts}) => onUpdateFunc(counts))
+    this.channel.on("update", ({ body: counts }) => onUpdateFunc(counts));
   }
 }

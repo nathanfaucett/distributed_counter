@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import { goToRoom } from '../../redux/actions/asyncActions';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { goToRoom } from "../../redux/actions/asyncActions";
 
 const FlexCenter = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const Page = styled.div`
   width: 100%;
   height: 100%;
 
-  font-family: 'Press Start 2P';
+  font-family: "Press Start 2P";
 `;
 
 const TitleBox = styled(FlexCenter)`
@@ -34,7 +34,7 @@ const TitleBox = styled(FlexCenter)`
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 30px
+    font-size: 30px;
   }
 `;
 
@@ -72,7 +72,7 @@ const ButtonPanel = styled.div`
   flex-flow: row wrap;
   justify-content: space-around;
   width: 100%;
-`
+`;
 
 const StyledInput = styled.input`
   width: calc(100% - 10px);
@@ -81,7 +81,7 @@ const StyledInput = styled.input`
   text-align: center;
 
   border: hidden;
-  font-family: 'Press Start 2P';
+  font-family: "Press Start 2P";
   font-size: 20px;
 
   color: grey;
@@ -91,32 +91,53 @@ const StyledInput = styled.input`
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 10px
+    font-size: 10px;
   }
 `;
 
-export const SettingsPage = ({me, room, setRandomRoom, setRoom, goToRoom}) => <Page>
-  <TitleBox><div>Count Me In!</div></TitleBox>
+export const SettingsPage = ({
+  me,
+  room,
+  password,
+  setRandomRoom,
+  setRoom,
+  setPassword,
+  goToRoom
+}) => (
+  <Page>
+    <TitleBox>
+      <div>Count Me In!</div>
+    </TitleBox>
 
-  <Form>
-    <FormField>
-      <p>Channel</p>
-      <StyledInput
-        onChange={event => setRoom(event.target.value)}
-        spellcheck="false"
-        value={room}
-        placeholder="Pick a Channel Name!"
-        onKeyDown={event => { if (event.key === "Enter") { goToRoom() } }}
-      />
-    </FormField>
+    <Form>
+      <FormField>
+        <p>Channel</p>
+        <StyledInput
+          onChange={event => setRoom(event.target.value)}
+          spellcheck="false"
+          value={room}
+          placeholder="Pick a Channel Name!"
+        />
+      </FormField>
+      <FormField>
+        <p>Password</p>
+        <StyledInput
+          onChange={event => setPassword(event.target.value)}
+          spellcheck="false"
+          value={password}
+          placeholder="Pick a Password or leave blank for a random!"
+          onKeyDown={event => {
+            if (event.key === "Enter") {
+              goToRoom();
+            }
+          }}
+        />
+      </FormField>
 
-    <ButtonPanel>
-      <StyledButton onClick={setRandomRoom}>
-        Random
-      </StyledButton>
-      <StyledButton onClick={goToRoom}>
-        GO!
-      </StyledButton>
-    </ButtonPanel>
-  </Form>
-</Page>
+      <ButtonPanel>
+        <StyledButton onClick={setRandomRoom}>Random</StyledButton>
+        <StyledButton onClick={goToRoom}>GO!</StyledButton>
+      </ButtonPanel>
+    </Form>
+  </Page>
+);
